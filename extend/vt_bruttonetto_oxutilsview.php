@@ -75,7 +75,7 @@ function smarty_function_vt_oxprice( $params, &$smarty )
             
             $sNettoPrice  = $mPrice->getNettoPrice();
             if ( is_numeric( $sNettoPrice ) ) {
-                if ( (float) $sPrice > 0 || $sCurrencySign  ) {
+                if ( (float) $sNettoPrice > 0 || $sCurrencySign  ) {
                     $sNettoPrice = number_format( $sNettoPrice, $iDecimals, $sDecimalsSeparator, $sThousandSeparator );
                     $sNettoOutput = ( isset($sSide) && $sSide == 'Front' ) ? $sCurrencySign . $sNettoPrice : $sNettoPrice . ' ' . $sCurrencySign;
                 }
